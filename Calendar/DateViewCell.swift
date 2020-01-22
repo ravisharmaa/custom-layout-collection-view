@@ -9,13 +9,6 @@ class DateViewCell: UICollectionViewCell {
         return dateLabel
     }()
     
-    lazy var containerView: UIView = {
-        let container = UIView()
-        container.translatesAutoresizingMaskIntoConstraints = false
-        
-        return container
-    }()
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
@@ -27,21 +20,12 @@ class DateViewCell: UICollectionViewCell {
     
     func configure() {
         
-        containerView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        contentView.addSubview(containerView)
+        
+        addSubview(dateLabel)
         
         NSLayoutConstraint.activate([
-            containerView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            containerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            containerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
-        ])
-        
-        containerView.addSubview(dateLabel)
-        
-        NSLayoutConstraint.activate([
-            dateLabel.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
-            dateLabel.centerYAnchor.constraint(equalTo: containerView.centerYAnchor)
+            dateLabel.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor),
+            dateLabel.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor)
         ])
     }
     

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		51192F2F23D8537F009102B7 /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51192F2E23D8537F009102B7 /* SeparatorView.swift */; };
+		51192F3123D853CB009102B7 /* CustomLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51192F3023D853CB009102B7 /* CustomLayout.swift */; };
 		5120037C23D568250084AA07 /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5120037B23D568250084AA07 /* ContainerView.swift */; };
 		51AAACA823D5915D008372CD /* DateViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51AAACA723D5915D008372CD /* DateViewCell.swift */; };
 		51AAACAC23D6D563008372CD /* HttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51AAACAB23D6D563008372CD /* HttpRequest.swift */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		51192F2E23D8537F009102B7 /* SeparatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorView.swift; sourceTree = "<group>"; };
+		51192F3023D853CB009102B7 /* CustomLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLayout.swift; sourceTree = "<group>"; };
 		5120037B23D568250084AA07 /* ContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
 		51AAACA723D5915D008372CD /* DateViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateViewCell.swift; sourceTree = "<group>"; };
 		51AAACAB23D6D563008372CD /* HttpRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpRequest.swift; sourceTree = "<group>"; };
@@ -66,6 +70,8 @@
 				5120037B23D568250084AA07 /* ContainerView.swift */,
 				51AAACA723D5915D008372CD /* DateViewCell.swift */,
 				51AAACAB23D6D563008372CD /* HttpRequest.swift */,
+				51192F2E23D8537F009102B7 /* SeparatorView.swift */,
+				51192F3023D853CB009102B7 /* CustomLayout.swift */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -140,6 +146,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51192F2F23D8537F009102B7 /* SeparatorView.swift in Sources */,
+				51192F3123D853CB009102B7 /* CustomLayout.swift in Sources */,
 				51D843B123D1D5A10016A03B /* ViewController.swift in Sources */,
 				51AAACAC23D6D563008372CD /* HttpRequest.swift in Sources */,
 				51D843AF23D1D5A10016A03B /* AppDelegate.swift in Sources */,

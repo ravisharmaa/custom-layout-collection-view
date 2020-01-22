@@ -1,70 +1,12 @@
 import UIKit
 
-class CustomLayout: UICollectionViewFlowLayout {
-    
-    
-    override init() {
-        super.init()
-        register(SeparatorView.self, forDecorationViewOfKind: "separtator")
-        minimumLineSpacing = 0.5
-        minimumInteritemSpacing = 0.5
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
-        let layoutAttributes = super.layoutAttributesForElements(in: rect) ?? []
-        
-        
-        let minimumWidth = self.minimumLineSpacing
-        
-        var decorationAttributes: [UICollectionViewLayoutAttributes] = []
-        
-        for layoutAttribute in layoutAttributes where layoutAttribute.indexPath.item > 0 {
-            let separatorAttribute = UICollectionViewLayoutAttributes(forDecorationViewOfKind: "separtator", with: layoutAttribute.indexPath)
-            let cellFrame = layoutAttribute.frame
-            separatorAttribute.frame = CGRect(x: cellFrame.origin.x,
-                                              y: cellFrame.origin.y - minimumWidth,
-                                              width: cellFrame.size.width,
-                                              height: minimumWidth)
-            separatorAttribute.zIndex = Int.max
-            decorationAttributes.append(separatorAttribute)
-        }
-       
-
-        return layoutAttributes + decorationAttributes
-        
-    }
-    
-}
-
-class SeparatorView: UICollectionReusableView {
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        self.backgroundColor = .black
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-    }
-    
-    override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
-        self.frame = layoutAttributes.frame
-    }
-    
-    
-    
-    
-}
-
 class ContainerView: UIView {
+    
+    let insets:CGFloat = 10
+    
+    let itemsPerRow: CGFloat = 7
+    
+    let spacing: CGFloat = 0
     
     lazy var collectionView: UICollectionView = {
         
@@ -88,14 +30,16 @@ class ContainerView: UIView {
     func configure() {
         translatesAutoresizingMaskIntoConstraints = false
         
-        backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+        backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         
         
         addSubview(collectionView)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        
+        collectionView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+    
         
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
@@ -109,11 +53,12 @@ class ContainerView: UIView {
             ])
     }
     
+    
 }
 
 extension ContainerView: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 30
+        return 31
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -122,6 +67,29 @@ extension ContainerView: UICollectionViewDelegate, UICollectionViewDataSource {
         cell?.dateLabel.text = "\(indexPath.row + 1) "
         
         return cell!
+    }
+    
+    
+}
+
+extension ContainerView: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let availableWidth = ((self.frame.size.width - (2 * insets) - (spacing * (itemsPerRow - 1)))) / itemsPerRow
+        
+        return CGSize(width: availableWidth, height: availableWidth)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: insets, left: insets, bottom: insets, right: insets)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return spacing
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return spacing
     }
     
     
