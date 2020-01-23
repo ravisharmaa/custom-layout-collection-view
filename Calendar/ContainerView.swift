@@ -39,7 +39,7 @@ class ContainerView: UIView {
         collectionView.delegate = self
         
         collectionView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-    
+        
         
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
@@ -77,7 +77,8 @@ extension ContainerView: UICollectionViewDelegateFlowLayout {
         
         let availableWidth = ((self.frame.size.width - (2 * insets) - (spacing * (itemsPerRow - 1)))) / itemsPerRow
         
-        return CGSize(width: availableWidth, height: availableWidth)
+        return CGSize(width: availableWidth, height: 50)
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -91,7 +92,6 @@ extension ContainerView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return spacing
     }
-    
     
 }
 

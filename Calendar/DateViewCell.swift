@@ -20,13 +20,15 @@ class DateViewCell: UICollectionViewCell {
     
     func configure() {
         
+        dateLabel.adjustsFontSizeToFitWidth = true
         
         addSubview(dateLabel)
         
         NSLayoutConstraint.activate([
             dateLabel.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor),
-            dateLabel.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor)
+            dateLabel.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor),
         ])
+        
     }
     
 }

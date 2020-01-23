@@ -15,14 +15,12 @@ class ViewController: UIViewController {
     
     lazy var stackView: UIStackView = {
         let stackView = UIStackView()
-        
-        
         return stackView
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
         view.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         configure()
         
@@ -37,8 +35,8 @@ class ViewController: UIViewController {
             containerView.topAnchor.constraint(equalTo: view.topAnchor),
             containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            containerView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.45)
-        ])
+            containerView.heightAnchor.constraint(equalTo: view.heightAnchor)
+            ])
     }
     
     func configureStackView() {
@@ -58,13 +56,15 @@ class ViewController: UIViewController {
         stackView.superview?.translatesAutoresizingMaskIntoConstraints = false
         
         stackView.superview?.addConstraints([
-           NSLayoutConstraint.init(item: stackView, attribute: .leading, relatedBy: .equal, toItem: stackView.superview, attribute: .leading, multiplier: 0, constant: 0),
-            NSLayoutConstraint.init(item: stackView, attribute: .trailing, relatedBy: .equal, toItem: stackView.superview, attribute: .trailing, multiplier: 0, constant: 0)
-        ])
-
+            NSLayoutConstraint.init(item: stackView, attribute: .leading, relatedBy: .equal, toItem: stackView.superview, attribute: .leading, multiplier: 0, constant: 20),
+            NSLayoutConstraint.init(item: stackView, attribute: .trailing, relatedBy: .equal, toItem: stackView.superview, attribute: .trailing, multiplier: 0, constant: -20)
+            ])
+        
         navigationItem.titleView = stackView
+        
+        
     }
-
-
+    
+    
 }
 
