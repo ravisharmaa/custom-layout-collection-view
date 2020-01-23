@@ -55,12 +55,12 @@ class ViewController: UIViewController {
         
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
-        //stackView.superview?.translatesAutoresizingMaskIntoConstraints = false
+        stackView.superview?.translatesAutoresizingMaskIntoConstraints = false
         
-//        stackView.superview?.addConstraints([
-//           NSLayoutConstraint.init(item: stackView, attribute: .leading, relatedBy: .equal, toItem: stackView.superview, attribute: .leading, multiplier: 0, constant: 0),
-//            NSLayoutConstraint.init(item: stackView, attribute: .trailing, relatedBy: .equal, toItem: stackView.superview, attribute: .trailing, multiplier: 0, constant: 0)
-//        ])
+        stackView.superview?.addConstraints([
+           NSLayoutConstraint.init(item: stackView, attribute: .leading, relatedBy: .equal, toItem: stackView.superview, attribute: .leading, multiplier: 0, constant: 0),
+            NSLayoutConstraint.init(item: stackView, attribute: .trailing, relatedBy: .equal, toItem: stackView.superview, attribute: .trailing, multiplier: 0, constant: 0)
+        ])
 
         navigationItem.titleView = stackView
     }

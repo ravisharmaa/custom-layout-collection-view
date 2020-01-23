@@ -21,6 +21,8 @@ class CustomLayout: UICollectionViewFlowLayout {
         
         var decorationAttributes: [UICollectionViewLayoutAttributes] = []
         
+        // loops through each item and defice a separator view for that item
+        
         for layoutAttribute in layoutAttributes //where layoutAttribute.indexPath.item > 6 {
         {
             let separatorAttribute = UICollectionViewLayoutAttributes(forDecorationViewOfKind: "separtator", with: layoutAttribute.indexPath)
