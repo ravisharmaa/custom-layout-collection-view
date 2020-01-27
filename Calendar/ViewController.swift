@@ -25,6 +25,21 @@ class ViewController: UIViewController {
         configure()
         
         configureStackView()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.rotated), name: UIDevice.orientationDidChangeNotification, object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: UIDevice.orientationDidChangeNotification, object: nil)
+    }
+
+    
+    @objc func rotated() {
+        if UIDevice.current.orientation.isLandscape {
+            print("hi")
+        } else {
+            print("bi")
+        }
     }
     
     func configure() {
@@ -36,30 +51,29 @@ class ViewController: UIViewController {
             containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             containerView.heightAnchor.constraint(equalTo: view.heightAnchor)
-            ])
+        ])
     }
     
     func configureStackView() {
         for i in 1...7 {
             let label = UILabel()
             label.text = "\(Days.init(rawValue: i)!)"
+            
+            label.textAlignment = .center
             stackView.addArrangedSubview(label)
         }
         
         stackView.alignment = .center
         stackView.distribution = .fillEqually
         stackView.axis = .horizontal
-        stackView.spacing = 26
         
+        
+        stackView.spacing = 26
+  
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
         stackView.superview?.translatesAutoresizingMaskIntoConstraints = false
-        
-        stackView.superview?.addConstraints([
-            NSLayoutConstraint.init(item: stackView, attribute: .leading, relatedBy: .equal, toItem: stackView.superview, attribute: .leading, multiplier: 0, constant: 20),
-            NSLayoutConstraint.init(item: stackView, attribute: .trailing, relatedBy: .equal, toItem: stackView.superview, attribute: .trailing, multiplier: 0, constant: -20)
-            ])
-        
+    
         navigationItem.titleView = stackView
         
         

@@ -23,8 +23,8 @@ class CustomLayout: UICollectionViewFlowLayout {
         
         // loops through each item and defice a separator view for that item
         
-        for layoutAttribute in layoutAttributes //where layoutAttribute.indexPath.item > 6 {
-        {
+        for layoutAttribute in layoutAttributes where layoutAttribute.indexPath.item > 6 {
+        //{
             let separatorAttribute = UICollectionViewLayoutAttributes(forDecorationViewOfKind: "separtator", with: layoutAttribute.indexPath)
             let cellFrame = layoutAttribute.frame
             separatorAttribute.frame = CGRect(x: cellFrame.origin.x,
