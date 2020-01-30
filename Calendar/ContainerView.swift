@@ -77,12 +77,12 @@ extension ContainerView: UICollectionViewDelegateFlowLayout {
         
         let availableWidth = ((self.frame.size.width - (2 * insets) - (spacing * (itemsPerRow - 1)))) / itemsPerRow
         
-        return CGSize(width: availableWidth, height: 50)
+        return CGSize(width: availableWidth, height: 45)
         
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: insets, left: insets, bottom: insets, right: insets)
+        return UIEdgeInsets(top: 0, left: insets, bottom: insets, right: insets)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
