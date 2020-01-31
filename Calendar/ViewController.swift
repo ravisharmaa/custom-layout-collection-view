@@ -60,6 +60,11 @@ class ViewController: UIViewController {
         
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        containerView.layoutIfNeeded()
+    }
+    
     
     func configureExtendedView() {
         

@@ -27,6 +27,11 @@ class ContainerView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func layoutIfNeeded() {
+        super.layoutIfNeeded()
+        collectionView.collectionViewLayout.invalidateLayout()
+    }
+    
     func configure() {
         translatesAutoresizingMaskIntoConstraints = false
         
