@@ -92,7 +92,7 @@ class ViewController: UIViewController {
             lineView.trailingAnchor.constraint(equalTo: extendedView.trailingAnchor),
             lineView.bottomAnchor.constraint(equalTo: extendedView.bottomAnchor),
             lineView.heightAnchor.constraint(equalToConstant: 0.5)
-            ])
+        ])
     }
     
     func configureContainerView() {
@@ -104,10 +104,11 @@ class ViewController: UIViewController {
             containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             containerView.heightAnchor.constraint(equalTo: view.heightAnchor)
-            ])
+        ])
     }
     
     func configureStackView() {
+        
         for i in 1...7 {
             let label = UILabel()
             label.text = "\(Days.init(rawValue: i)!)"
@@ -131,7 +132,7 @@ class ViewController: UIViewController {
         NSLayoutConstraint.activate([
             stackView.leadingAnchor.constraint(equalTo: extendedView.leadingAnchor, constant: 16),
             stackView.trailingAnchor.constraint(equalTo: extendedView.trailingAnchor, constant: -16)
-            ])
+        ])
         
         
     }
